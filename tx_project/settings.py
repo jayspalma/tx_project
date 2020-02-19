@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'login',
+    'tx_discrepancy',
+    'tx_inventory',
+    'details',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -76,9 +81,16 @@ WSGI_APPLICATION = 'tx_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'txproject',
+        'USER': 'postgres',
+        'PASSWORD': 'password123',
+        'HOST': 'localhost'
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
 }
 
 

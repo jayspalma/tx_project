@@ -1,0 +1,15 @@
+#header{
+background: #007bff;
+}
+
+#branding h1{
+color: white;
+}
+
+#user-tools{
+    color: white;
+}
+
+.submit-row input, a.button {
+    background: #007bff;   
+}

@@ -18,8 +18,9 @@ from django.urls import path, include
 from login import views
 
 urlpatterns = [
+    path('',include('announcement.urls')),
     path('admin/', admin.site.urls),
-    path('login/', include('login.urls')),
+    # path('login/', include('login.urls')),
     path('accounts/', include('accounts.urls')),
     path('base/',views.base),
     path('discrepancy/',include('tx_discrepancy.urls')),

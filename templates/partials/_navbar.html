@@ -1,18 +1,30 @@
-<div style="margin-bottom: 100px;">
+<div style="margin-bottom: 75px;">
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-primary">
         <div class="container">
         <a class="navbar-brand" href="#">Navbar</a>   
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'inventory' %}">Inventory</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'discrepancy' %}">Discrepancy</a>
+            </li>
           </ul>
           <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
               <li class="nav-item">
-                  <a href="" class="nav-link">Logout</a>
+                <a href="#" class="nav-link">{{user.username|title}}</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a href="{% url 'login' %}" class="nav-link">Login</a>
+              </li>
+            {% endif %}
+              <li class="nav-item">
+                  <a href="{% url 'logout' %}" class="nav-link">Logout</a>
               </li>
           </ul>
         </div>

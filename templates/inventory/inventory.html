@@ -14,28 +14,15 @@
             </tr>
           </thead>
           <tbody>
+            {% for inventory in inventories %}
             <tr>
-              <td>MLA-2</td>
-              <td>Harris HT 120 LS</td>
-              <td>Slave Controller Board</td>
-              <td>992-1782-232</td>
-              <td>3</td>
+              <td>{{ inventory.site_name }}</td>
+              <td>{{ inventory.transmitter}}</td>
+              <td>{{ inventory.component}}</td>
+              <td>{{ inventory.part_number }}</td>
+              <td>{{ inventory.quantity}}</td>
             </tr>
-            <tr>
-                <td>MLA-2</td>
-                <td>Harris HT 120 LS</td>
-                <td>Slave Controller Board</td>
-                <td>992-1782-232</td>
-                <td>3</td>
-              </tr>
-            <tr>
-                <td>MLA-2</td>
-                <td>Harris HT 120 LS</td>
-                <td>Slave Controller Board</td>
-                <td>992-1782-232</td>
-                <td>3</td>
-              </tr>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
       </div>

@@ -1,8 +1,10 @@
 from django.shortcuts import render,redirect
 from accounts import views
-from django.contrib import messages,auth
+from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import logout,login,authenticate
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 # Create your views here.
@@ -11,10 +13,10 @@ def login_request(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        user = auth.authenticate(username=username,password=password)
+        user = authenticate(username=username,password=password)
 
         if user is not None:
-            auth.login(request,user)
+            login(request,user)
             return redirect('home')
         else:
             messages.error(request,"Wrong Username/Password")
@@ -59,5 +61,5 @@ def register(request):
 
 def logout_request(request):
     logout(request)
-    return redirect('home')
+    return HttpResponseRedirect(reverse('login'))
 

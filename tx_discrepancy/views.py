@@ -2,10 +2,12 @@ from django.shortcuts import render
 from tx_discrepancy.models import Discrepancy
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from details.choices import site_class_choices,report_status_choices,site_code_choices
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
-
+@login_required
 def discrepancy(request):
     discrepancies = Discrepancy.objects.all()
 

@@ -2,7 +2,9 @@ from django.shortcuts import render,get_object_or_404
 from tx_discrepancy.models import Discrepancy
 from details.choices import site_class_choices,report_status_choices,site_code_choices
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.contrib.auth.decorators import login_required
 
+@login_required
 # Create your views here.
 def details(request,discrepancy_id):
     discrepancy = get_object_or_404(Discrepancy, pk=discrepancy_id)
@@ -11,6 +13,7 @@ def details(request,discrepancy_id):
     }
     return render(request,'details/details.html',context)
 
+@login_required
 def search(request):
     query_set = Discrepancy.objects.order_by('-date')
 
